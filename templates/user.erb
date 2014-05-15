@@ -1,0 +1,42 @@
+user = <%= @user %> {
+<% if !@login.empty? -%>
+    login = <%= @login %>
+<% end -%>
+<% if !@pap.empty? -%>
+    pap = <%= @pap %>
+<% end -%>
+<% if !@member.empty? -%>
+    member = <%= @member %>
+<% end -%>
+<% @service.each do |srv, srv_opts| -%>
+<% if !srv_opts.nil? -%>
+    service = <%= @srv %> {
+<% srv_opts.each do |service_opts| -%>
+      <%= service_opts %>
+<% end -%>
+    }
+<% else -%>
+    service = <%= @service %>
+<% end -%>
+<% end -%>
+<% @protocol.each do |proto, proto_opts| -%>
+<% if !proto_opts.nil? -%>
+    protocol = <%= proto %> {
+<% proto_opts.each do |proto_options| -%>
+      <%= proto_options %>
+<% end -%>
+    }
+<% end -%>
+<% end -%>
+<% @cmd.each do |comd, comd_opts| -%>
+    cmd = <%= comd %> {
+<% comd_opts.each do |cmd_opts| -%>
+      <%= cmd_opts %>
+<% end -%>
+    }
+<% end -%>
+<% if !@additional_attrs.empty? -%>
+    <%= @additional_attrs %>
+<% end -%>
+}
+

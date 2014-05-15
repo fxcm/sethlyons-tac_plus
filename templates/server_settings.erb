@@ -1,0 +1,14 @@
+# TAC_PLUS configuration file.
+# Managed by Puppet
+
+## HOW TO USE:
+# to check this config's validity: ./tac_plus -P -C /path/to/this_file
+#
+
+<% if !@key.empty? -%>
+key = <%= @key %>
+<% end -%>
+<% if !@accounting_file.empty? -%>
+accounting file = <%= @accounting_file %>
+<% end -%>
+
