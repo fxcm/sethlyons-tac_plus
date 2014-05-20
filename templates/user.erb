@@ -8,6 +8,9 @@ user = <%= @user %> {
 <% if !@member.empty? -%>
     member = <%= @member %>
 <% end -%>
+<% if !@default_service.empty? -%>
+    default_service = <% @default_service %>
+<% end -%>
 <% @service.each do |srv, srv_opts| -%>
 <% if !srv_opts.nil? -%>
     service = <%= @srv %> {

@@ -15,6 +15,9 @@
 # [*member*]
 #   group to which user belongs
 #
+# [*default_service*]
+#   set the user's default service.  should be either permit or deny.
+#
 # [*service*]
 #   service definitions as hashes
 #   ***each key's value should be in a single array***
@@ -39,6 +42,7 @@ define tac_plus::user (
   $login            = '',
   $pap              = '',
   $member           = '',
+  $default_service  = '',
   $service          = {},
   $protocol         = {},
   $cmd              = {},
