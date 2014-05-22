@@ -51,15 +51,18 @@ class { 'tac_plus':
 Adding a user
 ```puppet
 tac_plus::user { 'test_user':
-  login    => 'des <des-hashed-password>',
-  pap      => 'des <des-hashed-password>',
-  member   => 'cisco_users',
-  service  => 'ppp',
-  protocol => {
-    'ip'   => [
-      'option1 = value1',
-      'option2 = value2',
-    ],
+  login          => 'des <des-hashed-password>',
+  pap            => 'des <des-hashed-password>',
+  member         => 'cisco_users',
+  service        => {
+    'ppp'        => {
+      'protocol' => {
+        'ip'     => [
+          'option1 = value1',
+          'option2 = value2',
+        ],
+      },
+    },
   },
   acl     => 'test_acl',
 }
@@ -68,12 +71,14 @@ tac_plus::user { 'test_user':
 Adding a group
 ```puppet
 tac_plus::group { 'test_group':
-  default_service => 'deny',
-  service         => {
-    'exec'        => [
-      'priv-lvl = 15',
-      'idletime = 10',
-    ],
+  default_service   => 'deny',
+  service           => {
+    'exec'          => {
+      'opts'        => [
+        'priv-lvl = 15',
+        'idletime = 10',
+      ],
+    },
   },
   cmd             => {
     'terminal'    => [
@@ -101,18 +106,21 @@ tac_plus::acl { 'test acl':
 Note on `additional_attrs`:  there can be many additional_attrs, but each attribute can only have one value.
 ```puppet
 tac_plus::user { 'test_user':
-  login            => 'des <des-hashed-password>',
-  pap              => 'des <des-hashed-password>',
-  member           => 'cisco_users',
-  service          => 'ppp',
-  protocol         => {
-    'ip'           => [
-      'option1 = value1',
-      'option2 = value2',
-    ],
+  login                => 'des <des-hashed-password>',
+  pap                  => 'des <des-hashed-password>',
+  member               => 'cisco_users',
+  service              => {
+    'ppp'              => {
+      'protocol'       => {
+        'ip'           => [
+          'option1 = value1',
+          'option2 = value2',
+        ],
+      },
+    },
   },
-  acl              => 'test_acl',
-  additional_attrs => [
+  acl                  => 'test_acl',
+  additional_attrs     => [
     'chap = <chap settings>',
     'expires = <date>',
   ],

@@ -12,7 +12,9 @@
 #
 # [*service*]
 #   service definitions as hashes
-#   ***each key's value should be in a single array***
+#   ***each key's value should be a hash with option keys
+#      opts and protocol***
+#   ***SEE EXAMPLE IN README***
 #
 # [*protocol*]
 #   protocol definitions as hashes
