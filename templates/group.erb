@@ -10,7 +10,7 @@ group = <%= @group %> {
 <% end -%>
     }
 <% else -%>
-    service = <%= @service %>
+    service = <%= srv %>
 <% end -%>
 <% end -%>
 <% @protocol.each do |proto, proto_opts| -%>
@@ -21,7 +21,7 @@ group = <%= @group %> {
 <% end -%>
     }
 <% else -%>
-    protocol = <% @proto %>
+    protocol = <% proto %>
 <% end -%>
 <% end -%>
 <% @cmd.each do |comd, comd_opts| -%>

@@ -13,13 +13,13 @@ user = <%= @user %> {
 <% end -%>
 <% @service.each do |srv, srv_opts| -%>
 <% if !srv_opts.empty? -%>
-    service = <%= @srv %> {
+    service = <%= srv %> {
 <% srv_opts.each do |service_opts| -%>
       <%= service_opts %>
 <% end -%>
     }
 <% else -%>
-    service = <%= @service %>
+    service = <%= srv %>
 <% end -%>
 <% end -%>
 <% @protocol.each do |proto, proto_opts| -%>
@@ -30,7 +30,7 @@ user = <%= @user %> {
 <% end -%>
     }
 <% else -%>
-    protocol = <% @proto %>
+    protocol = <% proto %>
 <% end -%>
 <% end -%>
 <% @cmd.each do |comd, comd_opts| -%>
