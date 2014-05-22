@@ -9,7 +9,7 @@ user = <%= @user %> {
     member = <%= @member %>
 <% end -%>
 <% if !@default_service.empty? -%>
-    default_service = <% @default_service %>
+    default service = <%= @default_service %>
 <% end -%>
 <% @service.each do |srv, srv_opts| -%>
 <% if !srv_opts.empty? -%>
@@ -30,7 +30,7 @@ user = <%= @user %> {
 <% end -%>
     }
 <% else -%>
-    protocol = <% proto %>
+    protocol = <%= proto %>
 <% end -%>
 <% end -%>
 <% @cmd.each do |comd, comd_opts| -%>
