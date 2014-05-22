@@ -3,7 +3,7 @@ group = <%= @group %> {
     default service = <%= @default_service %>
 <% end -%>
 <% @service.each do |srv, srv_opts| -%>
-<% if !srv_opts.nil? -%>
+<% if !srv_opts.empty? -%>
     service = <%= srv %> {
 <% srv_opts.each do |service_opts| -%>
       <%= service_opts %>
@@ -14,12 +14,14 @@ group = <%= @group %> {
 <% end -%>
 <% end -%>
 <% @protocol.each do |proto, proto_opts| -%>
-<% if !proto_opts.nil? -%>
+<% if !proto_opts.empty? -%>
     protocol = <%= proto %> {
 <% proto_opts.each do |proto_options| -%>
       <%= proto_options %>
 <% end -%>
     }
+<% else -%>
+    protocol = <% @proto %>
 <% end -%>
 <% end -%>
 <% @cmd.each do |comd, comd_opts| -%>
