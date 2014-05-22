@@ -12,14 +12,14 @@ user = <%= @user %> {
     member = <%= @member %>
 <% end -%>
 <% @service.each do |srv, srv_opts| -%>
-<% if !srv_opts.empty? -%>
+<% if !srv_opts.has_key?("opts") || srv_opts["opts"].empty? -%>
+    service = <%= srv %>
+<% else -%>
     service = <%= srv %> {
-<% srv_opts.each do |service_opts| -%>
+<% srv_opts["opts"].each do |service_opts| -%>
       <%= service_opts %>
 <% end -%>
     }
-<% else -%>
-    service = <%= srv %>
 <% end -%>
 <% end -%>
 <% @protocol.each do |proto, proto_opts| -%>
