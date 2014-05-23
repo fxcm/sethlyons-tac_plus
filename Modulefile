@@ -1,5 +1,5 @@
 name 'sethlyons-tac_plus'
-version '0.0.1'
+version '0.0.2'
 source 'git://github.com/fxcm/sethlyons-tac_plus.git'
 author 'sethlyons'
 summary 'Puppet module for tac_plus'
