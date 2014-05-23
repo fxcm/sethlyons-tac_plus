@@ -11,11 +11,11 @@ user = <%= @user %> {
 <% if !@member.empty? -%>
     member = <%= @member %>
 <% end -%>
-<% @service.each do |srv, srv_opts| -%>
+<% @service.sort.each do |srv, srv_opts| -%>
 <% if !srv_opts.has_key?("opts") || srv_opts["opts"].empty? -%>
     service = <%= srv %>
 <% if srv_opts.has_key?("protocol") -%>
-<% srv_opts["protocol"].each do |proto, proto_opts| -%>
+<% srv_opts["protocol"].sort.each do |proto, proto_opts| -%>
 <% if !proto_opts.empty? -%>
     protocol = <%= proto %> {
 <% proto_opts.each do |proto_options| -%>
@@ -35,7 +35,7 @@ user = <%= @user %> {
     }
 <% end -%>
 <% end -%>
-<% @protocol.each do |proto, proto_opts| -%>
+<% @protocol.sort.each do |proto, proto_opts| -%>
 <% if !proto_opts.empty? -%>
     protocol = <%= proto %> {
 <% proto_opts.each do |proto_options| -%>
@@ -46,7 +46,7 @@ user = <%= @user %> {
     protocol = <%= proto %>
 <% end -%>
 <% end -%>
-<% @cmd.each do |comd, comd_opts| -%>
+<% @cmd.sort.each do |comd, comd_opts| -%>
     cmd = <%= comd %> {
 <% comd_opts.each do |cmd_opts| -%>
       <%= cmd_opts %>
