@@ -118,7 +118,7 @@ tac_plus::user { 'test_user':
         ],
       },
     },
-  }
+  },
   acl                  => 'test_acl',
   additional_attrs     => [
     'chap = <chap settings>',
