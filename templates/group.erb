@@ -39,7 +39,7 @@ group = <%= @group %> {
 <% end -%>
 <% @cmd.sort.each do |comd, comd_opts| -%>
     cmd = <%= comd %> {
-<% comd_opts.each do |cmd_opts| -%>
+<% [comd_opts].flatten.each do |cmd_opts| -%>
       <%= cmd_opts %>
 <% end -%>
     }
