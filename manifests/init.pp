@@ -11,6 +11,9 @@
 # [*accounting_file*]
 #   location of tac_plus accounting file
 #
+# [*package_name*]
+#   package name of tac_plus
+#
 # [*package_ensure*]
 #   present/latest/installed/etc.
 #
@@ -35,6 +38,7 @@
 class tac_plus (
   $key              = '',
   $accounting_file  = '',
+  $package_name     = $::tac_plus::params::package_name,
   $package_ensure   = $::tac_plus::params::package_ensure,
   $tac_plus_dir     = $::tac_plus::params::tac_plus_dir,
   $tac_plus_conf    = $::tac_plus::params::tac_plus_conf,
@@ -44,7 +48,7 @@ class tac_plus (
   $config_group     = $::tac_plus::params::config_group,
   ) inherits params {
 
-  package { 'tac_plus':
+  package { $package_name:
     ensure => $package_ensure,
   }
 
@@ -65,8 +69,8 @@ class tac_plus (
     "$tac_plus_dir":
       ensure => directory,
       mode   => '0700',
-      owner  => 'tacacs',
-      group  => 'tacacs',
+      owner  => $config_owner,
+      group  => $config_group,
   }
 
   case $::osfamily {
@@ -85,7 +89,16 @@ class tac_plus (
         notify  => Service['tac_plus'],
       }
     }
-
+    'Debian': {
+      file { '/etc/default/tacacs+':
+        ensure  => present,
+        owner   => 'root',
+        group   => 'root',
+        mode    => '0644',
+        content => "# tac_plus init configuration via Puppet\nDAEMON_OPTS=\"-C ${tac_plus_conf} ${tac_plus_flags}\"",
+        notify  => Service['tac_plus'],
+      }
+    }
     default: {
       fail("${::osfamily} is not supported")
     }
@@ -96,7 +109,7 @@ class tac_plus (
     enable    => true,
     ensure    => running,
     require   => [
-      Package['tac_plus'],
+      Package[$package_name],
       Concat[$tac_plus_conf],
     ],
   }

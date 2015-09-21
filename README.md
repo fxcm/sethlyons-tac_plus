@@ -148,7 +148,7 @@ tac_plus::user { 'test_user':
 The tac_plus module relies on server settings, user, group, and ACL templates that get concatenated into a single configuration file.
 
 ##Limitations
-This module currently works only on FreeBSD.  It was written with a framework in place to easily add support for additional operating systems.
+This module currently works only on FreeBSD and Debian.  It was written with a framework in place to easily add support for additional operating systems.
 
 ##Contributors
 Special thanks to the following individuals for their help:
