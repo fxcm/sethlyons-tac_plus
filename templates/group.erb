@@ -2,6 +2,9 @@ group = <%= @group %> {
 <% if !@default_service.empty? -%>
     default service = <%= @default_service %>
 <% end -%>
+<% if !@member.empty? -%>
+    member = <%= @member %>
+<% end -%>
 <% @service.sort.each do |srv, srv_opts| -%>
 <% if !srv_opts.has_key?("opts") || srv_opts["opts"].empty? -%>
     service = <%= srv %>
