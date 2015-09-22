@@ -31,6 +31,7 @@
 define tac_plus::group (
   $group           = $name,
   $default_service = '',
+  $member          = '',
   $service         = {},
   $protocol        = {},
   $cmd             = {},
