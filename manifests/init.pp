@@ -55,6 +55,7 @@ class tac_plus (
   concat { $tac_plus_conf:
     owner   => $config_owner,
     group   => $config_group,
+    mode    => '0640',
     require => File["$tac_plus_dir"],
     notify  => Service['tac_plus'],
   }
