@@ -1,0 +1,5 @@
+fixtures:
+  repositories:
+    concat: "https://github.com/puppetlabs/puppetlabs-concat"
+symlinks:
+  tac_plus: "#{source_dir}"
