@@ -72,6 +72,7 @@ Adding a group
 ```puppet
 tac_plus::group { 'test_group':
   default_service   => 'deny',
+  member            => 'other_group',
   service           => {
     'exec'          => {
       'opts'        => [
