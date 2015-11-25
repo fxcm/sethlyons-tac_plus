@@ -11,6 +11,9 @@ user = <%= @user %> {
 <% if !@member.empty? -%>
     member = <%= @member %>
 <% end -%>
+<% if !@acl.empty? -%>
+    acl = <%= @acl %>
+<% end -%>
 <% @service.sort.each do |srv, srv_opts| -%>
 <% if !srv_opts.has_key?("opts") || srv_opts["opts"].empty? -%>
     service = <%= srv %>
