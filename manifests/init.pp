@@ -46,7 +46,7 @@ class tac_plus (
   $tac_plus_service = $::tac_plus::params::tac_plus_service,
   $config_owner     = $::tac_plus::params::config_owner,
   $config_group     = $::tac_plus::params::config_group,
-  ) inherits params {
+  ) inherits tac_plus::params {
 
   package { $package_name:
     ensure => $package_ensure,
