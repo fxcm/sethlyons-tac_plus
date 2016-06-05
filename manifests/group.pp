@@ -29,13 +29,13 @@
 #   ***each attribute receives only one value***
 #
 define tac_plus::group (
-  $group           = $name,
-  $default_service = '',
-  $member          = '',
-  $service         = {},
-  $protocol        = {},
-  $cmd             = {},
-  $addtional_attrs = {},
+  $group            = $name,
+  $default_service  = '',
+  $member           = '',
+  $service          = {},
+  $protocol         = {},
+  $cmd              = {},
+  $additional_attrs = {},
 ) {
 
   concat::fragment {"group-${group}":
