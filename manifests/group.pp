@@ -35,7 +35,7 @@ define tac_plus::group (
   $service          = {},
   $protocol         = {},
   $cmd              = {},
-  $additional_attrs = {},
+  $additional_attrs = [],
 ) {
 
   concat::fragment {"group-${group}":
