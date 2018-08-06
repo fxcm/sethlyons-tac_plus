@@ -1,0 +1,17 @@
+{
+   "name": "sethlyons-tac_plus",
+   "version": "0.0.3",
+   "author": "sethlyons",
+   "summary": "Installs, configures, and manages tac_plus.",
+   "license": "Apache-2.0",
+   "source": "git://github.com/fxcm/sethlyons-tac_plus.git",
+   "project_page": "https://github.com/fxcm/sethlyons-tac_plus",
+   "dependencies": [
+      { "name": "puppetlabs/concat", "version_requirement": ">= 1.0.2" }
+   ],
+   "operatingsystem_support": [
+      { "operatingsystem": "Debian" },
+      { "operatingsystem": "FreeBSD" }
+   ],
+   "description": "Module for tac_plus installation and configuration."
+}
