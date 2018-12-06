@@ -75,6 +75,16 @@ class tac_plus (
   }
 
   case $::osfamily {
+    'Debian': {
+      file { '/etc/default/tacacs+':
+        ensure  => present,
+        owner   => 'root',
+        group   => 'root',
+        mode    => '0644',
+        content => "# tac_plus init configuration via Puppet\nDAEMON_OPTS=\"-C ${tac_plus_conf} ${tac_plus_flags}\"",
+        notify  => Service['tac_plus'],
+      }
+    }
     'FreeBSD': {
       if $tac_plus_flags!='' {
         file_line { 'rc.conf tac_plus_flags':
@@ -87,16 +97,6 @@ class tac_plus (
       file_line { 'rc.conf tac_plus_configfile':
         path    => '/etc/rc.conf',
         line    => "tac_plus_configfile=\"${tac_plus_conf}\"",
-        notify  => Service['tac_plus'],
-      }
-    }
-    'Debian': {
-      file { '/etc/default/tacacs+':
-        ensure  => present,
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0644',
-        content => "# tac_plus init configuration via Puppet\nDAEMON_OPTS=\"-C ${tac_plus_conf} ${tac_plus_flags}\"",
         notify  => Service['tac_plus'],
       }
     }
