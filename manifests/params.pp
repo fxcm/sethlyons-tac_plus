@@ -22,6 +22,16 @@ class tac_plus::params {
       $config_owner     = 'tacacs'
       $config_group     = 'tacacs'
     }
+    'RedHat': {
+      $package_name     = 'tacacs'
+      $package_ensure   = 'installed'
+      $tac_plus_dir     = undef
+      $tac_plus_conf    = '/etc/tac_plus.conf'
+      $tac_plus_flags   = ''
+      $tac_plus_service = 'tac_plus'
+      $config_owner     = 'root'
+      $config_group     = 'root'
+    }
 
     default: {
       fail("${::osfamily} is not supported")
