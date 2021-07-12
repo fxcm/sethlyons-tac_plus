@@ -1,6 +1,6 @@
 {
   "name": "sethlyons-tac_plus",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "sethlyons",
   "summary": "Installs, configures, and manages tac_plus.",
   "license": "Apache-2.0",
