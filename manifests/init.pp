@@ -40,6 +40,7 @@ class tac_plus (
   $accounting_file  = '',
   $package_name     = $::tac_plus::params::package_name,
   $package_ensure   = $::tac_plus::params::package_ensure,
+  $package_source   = undef,
   $tac_plus_dir     = $::tac_plus::params::tac_plus_dir,
   $tac_plus_conf    = $::tac_plus::params::tac_plus_conf,
   $tac_plus_flags   = '',
@@ -50,6 +51,7 @@ class tac_plus (
 
   package { $package_name:
     ensure => $package_ensure,
+    source => $package_source,
   }
 
   concat { $tac_plus_conf:
