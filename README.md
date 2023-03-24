@@ -53,6 +53,7 @@ Adding a user
 tac_plus::user { 'test_user':
   login          => 'des <des-hashed-password>',
   pap            => 'des <des-hashed-password>',
+  enable         => 'des <des-hashed-password>',
   member         => 'cisco_users',
   service        => {
     'ppp'        => {

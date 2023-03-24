@@ -12,6 +12,9 @@
 # [*pap*]
 #   user's password for pap logins
 #
+# [*enable*]
+#   user's password for devices requiring enable passwords
+#
 # [*member*]
 #   group to which user belongs
 #
@@ -43,6 +46,7 @@ define tac_plus::user (
   $user             = $name,
   $login            = '',
   $pap              = '',
+  $enable           = '',
   $member           = '',
   $default_service  = '',
   $service          = {},
